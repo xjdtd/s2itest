@@ -1,0 +1,2 @@
+#Make Apache show 'debug' level logs duiring startup
+run-httpd -e debug $@

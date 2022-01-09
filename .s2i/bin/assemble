@@ -1,0 +1,16 @@
+#!/bin/bash
+set -e
+source ${HTTPD_CONTAINER_SCRIPTS_PATH}/common.sh
+echo "---->Jdxu S2I test!!!"
+config_s2i
+echo "----> Installing application source"
+cp -Rf /tmp/src/. ./
+process_extending_files ${HTTPD_APP_ROOT}/src/httpd-post-assemble/ ${HTTPD_CONTAINER_SCRIPTS_PATH}/post-assemble/
+
+#Fix source dicrectory permissions
+fix-permissions ./
+DATA=`date "+%b %d, %Y @ %H:%M %p"`
+echo "----> Create info Page"
+echo "Page build on $DATE" >> ./info.html
+echo "Jdux test： Proudly served by Apache HTTP Serever version $HTTPD_VERSION" >> ./info.html
+
