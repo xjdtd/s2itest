@@ -9,7 +9,7 @@ process_extending_files ${HTTPD_APP_ROOT}/src/httpd-post-assemble/ ${HTTPD_CONTA
 
 #Fix source dicrectory permissions
 fix-permissions ./
-DATA=`date "+%b %d, %Y @ %H:%M %p"`
+DATE=`date "+%b %d, %Y @ %H:%M %p"`
 echo "----> Create info Page"
 echo "Page build on $DATE" >> ./info.html
 echo "Jdux test： Proudly served by Apache HTTP Serever version $HTTPD_VERSION" >> ./info.html
